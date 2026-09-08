@@ -19,7 +19,6 @@ output:
 
 sections:
   show:
-    - requirements
     - providers
     - modules
     - inputs

@@ -14,11 +14,6 @@
 #
 .PHONY: all security lint format documentation documentation-examples validate-all validate validate-examples init examples tests
 
-# Terraform test directory to run, relative to tests/ (e.g. tests/unit, tests/integration).
-# Override on the command line to run a different suite, e.g:
-#   make tests TERRAFORM_TEST_TYPE=integration
-TERRAFORM_TEST_TYPE ?= unit
-
 default: all
 
 all:
@@ -74,7 +69,7 @@ upgrade-terraform-example-providers:
 
 init:
 	@echo "--> Running terraform init"
-	@terraform init -backend=false -test-directory=tests/$(TERRAFORM_TEST_TYPE)
+	@terraform init -backend=false
 	@find . -type f -name "*.tf" -not -path '*.terraform*' -exec dirname {} \; | sort -u | while read -r dir; do \
 		echo "--> Running terraform init in $$dir"; \
 		terraform -chdir=$$dir init -backend=false; \
@@ -102,7 +97,7 @@ security-examples:
 
 tests:
 	@echo "--> Running Terraform Tests"
-	@terraform test -test-directory=tests/$(TERRAFORM_TEST_TYPE)
+	@terraform test
 
 validate:
 	@echo "--> Running terraform validate"

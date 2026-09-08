@@ -15,14 +15,14 @@
 
 Links an Azure Partner ID (MPN ID) to a subscription via the [Microsoft Partner Admin Link (PAL)](https://learn.microsoft.com/en-us/partner-center/marketplace-offers/link-partner-id-usage-telemetry) mechanism, so Microsoft can attribute the resources deployed in the subscription to the partner for usage and co-sell credit.
 
+Does not delete the resource on destroy by default, as this is a destructive operation that will remove the partner association from the tenant. If you want to delete the resource on destroy, set `delete_on_destroy` to `true`, then perform an apply, followed by a destroy.
+
 ## Usage
 
 ```hcl
 module "partner_admin_link" {
   source  = "appvia/partner-admin-link/azurerm"
   version = "0.0.1"
-
-  partner_id = 6098754
 }
 ```
 
@@ -33,13 +33,6 @@ See the [examples](./examples) directory for working usage examples.
 - [Basic](./examples/basic) - A basic example of how to use this module.
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
-
-| Name | Version |
-| ---- | ------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11 |
-| <a name="requirement_azapi"></a> [azapi](#requirement\_azapi) | ~> 2.11 |
-
 ## Providers
 
 | Name | Version |
@@ -54,17 +47,23 @@ No modules.
 
 | Name | Type |
 | ---- | ---- |
-| [azapi_resource_action.management_partner](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
+| [azapi_resource_action.management_partner_create](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
+| [azapi_resource_action.management_partner_delete](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
+| [azapi_resource_action.management_partner_patch](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
-| <a name="input_partner_id"></a> [partner\_id](#input\_partner\_id) | The Microsoft Partner Network (MPN) ID to link to the subscription. | `number` | n/a | yes |
+| <a name="input_delete_on_destroy"></a> [delete\_on\_destroy](#input\_delete\_on\_destroy) | If true, the Management Partner resource will be deleted when the Terraform resource is destroyed.<br/>If false, the Management Partner resource will remain in place after the Terraform resource is destroyed.<br/><br/>Note: to delete the management partner you must set this to `true` and run `terraform apply` before `terraform destroy`. | `bool` | `false` | no |
+| <a name="input_partner_id"></a> [partner\_id](#input\_partner\_id) | The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appview's MPN ID (6098754).<br/><br/>Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time. | `number` | `6098754` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+| ---- | ----------- |
+| <a name="output_partner_name"></a> [partner\_name](#output\_partner\_name) | The name of the partner associated with the tenant. |
+| <a name="output_status"></a> [status](#output\_status) | The status of the partner association with the tenant. |
 <!-- END_TF_DOCS -->
 
 ## Contributing
