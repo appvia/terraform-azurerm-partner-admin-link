@@ -1,9 +1,5 @@
 variable "partner_id" {
   type        = number
   description = "The Microsoft Partner Network (MPN) ID to link to the subscription."
-
-  validation {
-    condition     = var.partner_id == floor(var.partner_id)
-    error_message = "partner_id must be an integer."
-  }
+  default     = 6098754
 }
