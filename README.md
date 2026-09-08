@@ -13,7 +13,7 @@
 
 ## Description
 
-Links an Azure Partner ID (MPN ID) to a subscription via the [Microsoft Partner Admin Link (PAL)](https://learn.microsoft.com/en-us/partner-center/marketplace-offers/link-partner-id-usage-telemetry) mechanism, so Microsoft can attribute the resources deployed in the subscription to the partner for usage and co-sell credit.
+Links an Azure Partner ID (MPN ID) to a tenant via the [Microsoft Partner Admin Link (PAL)](https://learn.microsoft.com/partner-center/marketplace-offers/link-partner-id-usage-telemetry) mechanism, so Microsoft can attribute the resources deployed in the subscription to the partner for usage and co-sell credit.
 
 Does not delete the resource on destroy by default, as this is a destructive operation that will remove the partner association from the tenant. If you want to delete the resource on destroy, set `delete_on_destroy` to `true`, then perform an apply, followed by a destroy.
 
