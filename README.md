@@ -33,11 +33,12 @@ See the [examples](./examples) directory for working usage examples.
 - [Basic](./examples/basic) - A basic example of how to use this module.
 
 <!-- BEGIN_TF_DOCS -->
+
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_azapi"></a> [azapi](#provider\_azapi) | ~> 2.11 |
+The following providers are used by this module:
+
+- <a name="provider_azapi"></a> [azapi](#provider_azapi) (~> 2.11)
 
 ## Modules
 
@@ -45,25 +46,52 @@ No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [azapi_resource_action.management_partner_create](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
-| [azapi_resource_action.management_partner_delete](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
-| [azapi_resource_action.management_partner_patch](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
+The following resources are used by this module:
 
-## Inputs
+- [azapi_resource_action.management_partner_create](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) (resource)
+- [azapi_resource_action.management_partner_delete](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) (resource)
+- [azapi_resource_action.management_partner_patch](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) (resource)
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_delete_on_destroy"></a> [delete\_on\_destroy](#input\_delete\_on\_destroy) | If true, the Management Partner resource will be deleted when the Terraform resource is destroyed.<br/>If false, the Management Partner resource will remain in place after the Terraform resource is destroyed.<br/><br/>Note: to delete the management partner you must set this to `true` and run `terraform apply` before `terraform destroy`. | `bool` | `false` | no |
-| <a name="input_partner_id"></a> [partner\_id](#input\_partner\_id) | The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appvia's MPN ID (6098754).<br/><br/>Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time. | `number` | `6098754` | no |
+## Required Inputs
+
+No required inputs.
+
+## Optional Inputs
+
+The following input variables are optional (have default values):
+
+### <a name="input_delete_on_destroy"></a> [delete\_on\_destroy](#input_delete_on_destroy)
+
+Description: If true, the Management Partner resource will be deleted when the Terraform resource is destroyed.  
+If false, the Management Partner resource will remain in place after the Terraform resource is destroyed.
+
+Note: to delete the management partner you must set this to `true` and run `terraform apply` before `terraform destroy`.
+
+Type: `bool`
+
+Default: `false`
+
+### <a name="input_partner_id"></a> [partner\_id](#input_partner_id)
+
+Description: The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appvia's MPN ID (6098754).
+
+Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time.
+
+Type: `number`
+
+Default: `6098754`
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| <a name="output_partner_name"></a> [partner\_name](#output\_partner\_name) | The name of the partner associated with the tenant. |
-| <a name="output_status"></a> [status](#output\_status) | The status of the partner association with the tenant. |
+The following outputs are exported:
+
+### <a name="output_partner_name"></a> [partner\_name](#output_partner_name)
+
+Description: The name of the partner associated with the tenant.
+
+### <a name="output_status"></a> [status](#output_status)
+
+Description: The status of the partner association with the tenant.
 <!-- END_TF_DOCS -->
 
 ## Contributing
