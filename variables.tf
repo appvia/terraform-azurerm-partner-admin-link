@@ -1,7 +1,7 @@
 variable "partner_id" {
   type        = number
   description = <<-DESCRIPTION
-The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appview's MPN ID (6098754).
+The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appvia's MPN ID (6098754).
 
 Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time.
 DESCRIPTION

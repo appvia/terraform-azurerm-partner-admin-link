@@ -56,7 +56,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_delete_on_destroy"></a> [delete\_on\_destroy](#input\_delete\_on\_destroy) | If true, the Management Partner resource will be deleted when the Terraform resource is destroyed.<br/>If false, the Management Partner resource will remain in place after the Terraform resource is destroyed.<br/><br/>Note: to delete the management partner you must set this to `true` and run `terraform apply` before `terraform destroy`. | `bool` | `false` | no |
-| <a name="input_partner_id"></a> [partner\_id](#input\_partner\_id) | The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appview's MPN ID (6098754).<br/><br/>Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time. | `number` | `6098754` | no |
+| <a name="input_partner_id"></a> [partner\_id](#input\_partner\_id) | The Microsoft Partner Network (MPN) ID to link to the subscription. Defaults to Appvia's MPN ID (6098754).<br/><br/>Note: **Do not use unknown values here**. Input the partner ID as a literal that is known at plan time. | `number` | `6098754` | no |
 
 ## Outputs
 
