@@ -1,7 +1,7 @@
 mock_provider "azapi" {}
 
 run "accepts_integer_partner_id" {
-  command = apply
+  command = plan
 
   variables {
     partner_id = 6098754
@@ -18,6 +18,18 @@ run "rejects_fractional_partner_id" {
 
   variables {
     partner_id = 6098754.5
+  }
+
+  expect_failures = [
+    var.partner_id
+  ]
+}
+
+run "rejects_negative_partner_id" {
+  command = plan
+
+  variables {
+    partner_id = -6098754
   }
 
   expect_failures = [
