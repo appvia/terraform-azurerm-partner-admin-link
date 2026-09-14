@@ -1,12 +1,6 @@
 locals {
-  output_partner_name = coalesce(
-    try(azapi_resource_action.management_partner_create[0].output.properties.partnerName, null),
-    try(azapi_resource_action.management_partner_patch[0].output.properties.partnerName, null),
-  )
-  output_state = coalesce(
-    try(azapi_resource_action.management_partner_create[0].output.properties.state, null),
-    try(azapi_resource_action.management_partner_patch[0].output.properties.state, null),
-  )
+  output_partner_name = azapi_resource_action.management_partner_create.output.properties.partnerName
+  output_state        = azapi_resource_action.management_partner_create.output.properties.state
 }
 
 output "partner_name" {
@@ -14,7 +8,7 @@ output "partner_name" {
   description = "The name of the partner associated with the tenant."
 }
 
-output "status" {
+output "state" {
   value       = local.output_state
-  description = "The status of the partner association with the tenant."
+  description = "The state of the partner association with the tenant."
 }

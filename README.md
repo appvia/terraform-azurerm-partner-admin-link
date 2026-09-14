@@ -49,7 +49,6 @@ No modules.
 |------|------|
 | [azapi_resource_action.management_partner_create](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
 | [azapi_resource_action.management_partner_delete](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
-| [azapi_resource_action.management_partner_patch](https://registry.terraform.io/providers/Azure/azapi/latest/docs/resources/resource_action) | resource |
 
 ## Inputs
 
@@ -63,7 +62,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_partner_name"></a> [partner\_name](#output\_partner\_name) | The name of the partner associated with the tenant. |
-| <a name="output_status"></a> [status](#output\_status) | The status of the partner association with the tenant. |
+| <a name="output_state"></a> [state](#output\_state) | The state of the partner association with the tenant. |
 <!-- END_TF_DOCS -->
 
 ## Contributing
