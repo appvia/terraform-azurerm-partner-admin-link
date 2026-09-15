@@ -25,4 +25,7 @@ resource "azapi_resource_action" "management_partner_delete" {
   body                   = {}
   when                   = "destroy"
   response_export_values = []
+  depends_on = [
+    azapi_resource_action.management_partner_create
+  ]
 }

@@ -7,5 +7,6 @@
 module "partner_admin_link" {
   source = "../.."
 
-  partner_id = var.partner_id
+  partner_id        = var.partner_id
+  delete_on_destroy = var.delete_on_destroy
 }
